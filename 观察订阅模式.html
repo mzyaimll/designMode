@@ -1,0 +1,60 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-17 11:18:51
+ * @LastEditTime: 2020-12-17 11:25:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \project\designMode\观察订阅模式.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    /**
+     * @description: 观察订阅者模式，观察者
+     * @param {*}
+     * @return {*}
+     */
+    class Publisher {
+      constructor() {
+        this.observers = []
+        console.log('publisher is created');
+      };
+      addObserver(observer) {
+        this.observers.push(observer)
+        console.log('publisher add observer');
+      };
+      notificate(str) {
+        this.observers.forEach(item => {
+          item.update(str)
+        })
+        console.log('publisher notification');
+      }
+    }
+    /**
+     * @description: 订阅者
+     * @param {*}
+     * @return {*}
+     */
+    class Observer {
+      constructor() {
+        console.log('Observer is create');
+      };
+      update(str) {
+        console.log('receive msg' + str);
+      }
+    }
+  </script>
+</body>
+
+</html>
